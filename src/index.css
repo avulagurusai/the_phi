@@ -1,0 +1,242 @@
+/* stylelint-disable */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* haX.baby Visual Identity & Retro Nostalgia Design System:
+   Palette: Warm Cream (#fff8f1), Rich Berry (#a34063), Deep Coffee (#5c4033), Amber Pinprick (#f59e0b)
+   Zero blur pixel-shadow accents, cozy borders, tactile presses, early-web soul */
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Warm Cream base (#fff8f1) & Deep Coffee text (#422d23) */
+    --background: 34 100% 97%;
+    --foreground: 21 29% 20%;
+
+    --card: 36 100% 99%;
+    --card-foreground: 21 29% 20%;
+    --popover: 36 100% 99%;
+    --popover-foreground: 21 29% 20%;
+
+    /* Rich Berry (#a34063) */
+    --primary: 339 44% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Amber / Starlight Gold (#f59e0b) */
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 21 29% 15%;
+
+    --muted: 34 35% 91%;
+    --muted-foreground: 21 18% 42%;
+
+    --accent: 339 44% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Warm Coffee Outlines (#5c4033) */
+    --border: 21 29% 28%;
+    --input: 21 29% 28%;
+    --ring: 339 44% 45%;
+
+    --chart-1: 339 44% 45%;
+    --chart-2: 38 92% 50%;
+    --chart-3: 160 50% 40%;
+    --chart-4: 21 29% 28%;
+    --chart-5: 280 40% 50%;
+
+    --sidebar-background: 34 50% 94%;
+    --sidebar-foreground: 21 29% 20%;
+    --sidebar-primary: 339 44% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 38 92% 50%;
+    --sidebar-accent-foreground: 21 29% 20%;
+    --sidebar-border: 21 29% 28%;
+    --sidebar-ring: 339 44% 45%;
+
+    /* Nostalgic solid drop shadow */
+    --shadow-pixel: 3px 3px 0 0 hsl(21 29% 28%);
+    --shadow-pixel-lg: 5px 5px 0 0 hsl(21 29% 28%);
+  }
+
+  .dark {
+    --radius: 0.75rem;
+    /* Midnight Nursery shift: Indigo/Night Sky (#101424) */
+    --background: 230 38% 10%;
+    --foreground: 34 100% 96%;
+    --card: 230 32% 15%;
+    --card-foreground: 34 100% 96%;
+    --popover: 230 32% 15%;
+    --popover-foreground: 34 100% 96%;
+    --primary: 339 65% 65%;
+    --primary-foreground: 230 38% 10%;
+    --secondary: 42 95% 58%;
+    --secondary-foreground: 230 38% 10%;
+    --muted: 230 25% 20%;
+    --muted-foreground: 230 20% 72%;
+    --accent: 42 95% 58%;
+    --accent-foreground: 230 38% 10%;
+    --destructive: 0 75% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 339 45% 42%;
+    --input: 339 45% 42%;
+    --ring: 42 95% 58%;
+
+    --shadow-pixel: 3px 3px 0 0 hsl(339 45% 30%);
+    --shadow-pixel-lg: 5px 5px 0 0 hsl(339 45% 30%);
+  }
+
+  /* Dream-time theme (pastel stardust & lavender sky) */
+  [data-theme='dream'] {
+    --radius: 0.75rem;
+    --background: 260 40% 96%;
+    --foreground: 260 40% 22%;
+    --card: 260 50% 99%;
+    --card-foreground: 260 40% 22%;
+    --popover: 260 50% 99%;
+    --popover-foreground: 260 40% 22%;
+    --primary: 280 60% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 42 95% 55%;
+    --secondary-foreground: 260 40% 20%;
+    --muted: 260 30% 90%;
+    --muted-foreground: 260 20% 45%;
+    --accent: 330 65% 60%;
+    --accent-foreground: 0 0% 100%;
+    --border: 260 35% 45%;
+    --input: 260 35% 45%;
+    --ring: 280 60% 55%;
+
+    --shadow-pixel: 3px 3px 0 0 hsl(260 35% 45%);
+    --shadow-pixel-lg: 5px 5px 0 0 hsl(260 35% 45%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  html {
+    @apply bg-background;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  h1, h2, h3, .font-serif-header {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+@layer components {
+  /* Core visual signature: hard-edged pixel shadow — a blur-free block shadow */
+  .pixel-shadow {
+    box-shadow: var(--shadow-pixel);
+  }
+  .pixel-shadow-lg {
+    box-shadow: var(--shadow-pixel-lg);
+  }
+
+  /* Thick-outline pixel container */
+  .pixel-border {
+    border: 3px solid hsl(var(--border));
+    border-radius: 0;
+  }
+
+  /* Beveled 3D edge: a light-top/dark-bottom 3D button face */
+  .pixel-bevel {
+    border: 3px solid hsl(var(--border));
+    box-shadow:
+      inset 3px 3px 0 0 hsl(0 0% 100% / 0.6),
+      inset -3px -3px 0 0 hsl(0 0% 0% / 0.35),
+      var(--shadow-pixel);
+  }
+
+  /* Gamepad press feel: sinks along the Y axis and swallows the shadow */
+  .pixel-press {
+    transition: transform 60ms steps(2, end), box-shadow 60ms steps(2, end);
+  }
+  .pixel-press:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 0 hsl(var(--border));
+  }
+
+  /* Scanline overlay: CRT screen texture */
+  .crt-scanlines {
+    position: relative;
+  }
+  .crt-scanlines::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      hsl(0 0% 0% / 0.12) 0px,
+      hsl(0 0% 0% / 0.12) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  }
+
+  /* Checkerboard pixel texture */
+  .pixel-checker {
+    background-image:
+      linear-gradient(45deg, hsl(var(--muted)) 25%, transparent 25% 75%, hsl(var(--muted)) 75%),
+      linear-gradient(45deg, hsl(var(--muted)) 25%, transparent 25% 75%, hsl(var(--muted)) 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 8px 8px;
+  }
+
+  /* Blinking block caret */
+  .pixel-caret {
+    display: inline-block;
+    width: 0.6em;
+    height: 1em;
+    background: hsl(var(--foreground));
+    vertical-align: text-bottom;
+    animation: pixel-blink 1s steps(1, end) infinite;
+  }
+
+  /* Frame-by-frame bounce (sprite idle) */
+  .pixel-bounce {
+    animation: pixel-bounce 0.6s steps(4, end) infinite alternate;
+  }
+
+  /* Flickering text (arcade prompt) */
+  .pixel-flicker {
+    animation: pixel-blink 0.9s steps(1, end) infinite;
+  }
+
+  @keyframes pixel-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  @keyframes pixel-bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-6px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pixel-caret, .pixel-bounce, .pixel-flicker { animation: none; }
+    .pixel-press { transition: none; }
+  }
+}

@@ -1,0 +1,9 @@
+AUTOMATED ARCHIVE EXCLUSION AUDIT
+Timestamp: 2026-10-18T17:36:18.221Z
+Exclusion Rule Enforcement:
+[EXCLUDED] .env, .env.local, .env.production
+[EXCLUDED] node_modules/, dist/, build/
+[EXCLUDED] .git/, .cache/
+[EXCLUDED] *.pem, *.key, private keys
+[INCLUDED] All Application Folders (src/, public/, docs/, supabase/, edge-functions/, tasks/, root configs)
+Total Files Packaged: 157
